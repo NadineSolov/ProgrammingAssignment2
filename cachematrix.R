@@ -36,3 +36,24 @@ cacheSolve <- function(x, ...) {
   x$setInverse(inv)
   inv
 }
+##Example with data
+my_matrix <- makeCacheMatrix(matrix(16:19, 2, 2))
+>  my_matrix$get()
+     [,1] [,2]
+[1,]   16   18
+[2,]   17   19
+>  my_matrix$getInverse()
+NULL
+>  cacheSolve(my_matrix)
+     [,1] [,2]
+[1,] -9.5    9
+[2,]  8.5   -8
+>  cacheSolve(my_matrix)
+getting cached data
+     [,1] [,2]
+[1,] -9.5    9
+[2,]  8.5   -8
+>  my_matrix$getInverse()
+     [,1] [,2]
+[1,] -9.5    9
+[2,]  8.5   -8
